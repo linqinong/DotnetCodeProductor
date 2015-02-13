@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <servers>
+    <Server servername="(local)" uid="sa" pwd="82121700" DbName="wzu_casedb" />
+    <Server servername="221.231.138.47" uid="wzbmpro" pwd="wz17linqinong1234" DbName="wzbmpro" />
+    <Server servername="221.231.138.21" uid="bminfo" pwd="wz17linqinong" DbName="bminfo" />
+    <Server servername="221.231.138.21" />
+    <Server servername="pattonjang.xicp.net" uid="sa" pwd="82121700" DbName="oa2013" />
+    <Server servername="pattonjang.xicp.net" />
+    <Server servername="pattonjang.xicp.net" />
+    <Server servername="pattonjang.xicp.net" />
+    <Server servername="221.231.140.176" uid="tqdg" pwd="tqdg2012" DbName="tqdg" />
+    <Server servername="221.231.140.176" />
+    <Server servername="221.231.140.176" />
+    <Server servername="192.168.1.80" uid="sa" pwd="82121700" DbName="oa2013" />
+    <Server servername="221.231.140.176" />
+    <Server servername="221.231.140.176" />
+  </servers>
+  <UI>
+    <code nvarchar="&lt;asp:TextBox ID=&quot;t_#zd_name#&quot; runat=&quot;server&quot;&gt;&lt;/asp:TextBox&gt;" />
+    <code bit="&lt;asp:RadioButtonList ID=&quot;r_#zd_name#&quot; runat=&quot;server&quot;&gt;&#xD;&#xA;        &lt;/asp:RadioButtonList&gt;" />
+    <code int="&lt;asp:DropDownList ID=&quot;D_#zd_name#&quot; runat=&quot;server&quot;&gt;&#xD;&#xA;        &lt;/asp:DropDownList&gt;" />
+  </UI>
+  <PROCEDURE Code="if exists(select * from sysobjects where type='p' and name='pro_#table_name#_mag')&#xD;&#xA;	drop proc pro_#table_name#_mag&#xD;&#xA;	&#xD;&#xA;go&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;create proc pro_#table_name#_mag&#xD;&#xA;#pro_para#&#xD;&#xA;@index int&#xD;&#xA;as&#xD;&#xA;	 if @index=1&#xD;&#xA;	 begin&#xD;&#xA;	  declare @count int&#xD;&#xA;	  select @count=count(*) from #table_name# where #pro_select_name#&#xD;&#xA;	  if @count=0&#xD;&#xA;	  insert into #table_name# (#table_columes#) values(#table_columes_values#)&#xD;&#xA; 	 end&#xD;&#xA;	 else if @index=2&#xD;&#xA;	 update #table_name# set #table_columes_set# where #pro_select_key#&#xD;&#xA;	 else if @index=3&#xD;&#xA;	 delete from  #table_name# where #pro_select_key#&#xD;&#xA;	&#xD;&#xA;go" />
+</Root>
